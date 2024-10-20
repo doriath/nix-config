@@ -11,11 +11,12 @@
     pkgs.nixfmt-rfc-style
   ];
 
-  programs.carapace = {
+  programs.direnv = {
     enable = true;
-    enableNushellIntegration = true;
+    nix-direnv.enable = true;
   };
   programs.bat.enable = true;
+  programs.carapace.enable = true;
   programs.fzf.enable = true;
   programs.ripgrep.enable = true;
   programs.zellij.enable = true;
