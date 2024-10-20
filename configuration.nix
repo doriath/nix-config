@@ -21,6 +21,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    kanata
     prusa-slicer
     lshw
     vim
@@ -48,6 +49,15 @@
 
   # Load nvidia driver for Xorg and Wayland
   services.xserver.videoDrivers = [ "nvidia" ];
+
+  # Map capslock to escape
+  services.kanata = {
+    enable = true;
+    keyboards = {
+      keyboard.config = ''(defsrc caps) (deflayer default esc)'';
+    };
+
+  };
 
   hardware.opengl.driSupport32Bit = true;
   hardware.opengl.driSupport = true;
@@ -102,6 +112,7 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.kernelModules = [ "uinput" ];
 
   boot.initrd.luks.devices."luks-afbe1f35-69e0-4918-b248-9faeefd94a6c".device = "/dev/disk/by-uuid/afbe1f35-69e0-4918-b248-9faeefd94a6c";
   networking.hostName = "nixos"; # Define your hostname.
