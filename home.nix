@@ -1,6 +1,9 @@
 { inputs, pkgs, ... }:
 {
   imports = [ ./home/programs ];
-  home.stateVersion = "24.05";
-
+  home = {
+    username = "doriath";
+    homeDirectory = "/home/doriath";
+    stateVersion = "24.05";
+  };
 }
