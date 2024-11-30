@@ -2,7 +2,10 @@
   description = "A simple NixOS flake";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
+    # Using 24.05 git tag, as stable point. If all flakes use 24.05, then
+    # the version of nixpkgs will be exactly the same (even without the lock file),
+    # allowing to reuse most basic packages.
+    nixpkgs.url = "github:NixOS/nixpkgs/24.05";
     # home-manager, used for managing user configuration
     home-manager = {
       url = "github:nix-community/home-manager/release-24.05";
@@ -12,16 +15,24 @@
       # to avoid problems caused by different versions of nixpkgs.
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    helix.url = "github:helix-editor/helix/master";
   };
 
   outputs =
     inputs@{ nixpkgs, home-manager, ... }:
+    let
+      system = "x86_64-linux";
+      pkgs = nixpkgs.legacyPackages.${system};
+    in
     {
+      apps.${system}.default = {
+        type = "app";
+        program = "${home-manager.packages.${system}.default}/bin/home-manager";
+      };
+      devShells."x86_64-linux".default = pkgs.mkShell {
+        buildInputs = [ home-manager.packages.${system}.default ];
+      };
       homeConfigurations."doriath" = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs {
-          system = "x86_64-linux";
-        };
+        pkgs = import nixpkgs { system = "x86_64-linux"; };
 
         # Specify your home configuration modules here, for example,
         # the path to your home.nix.

@@ -1,8 +1,7 @@
-{ inputs, pkgs, ... }:
+{ pkgs, ... }:
 {
   programs.helix = {
     enable = true;
-    package = inputs.helix.packages."${pkgs.system}".helix;
     defaultEditor = true;
     settings = {
       theme = "gruvbox";
@@ -17,6 +16,9 @@
       };
     };
     languages = {
+      language-server.nixd = {
+        command = "${pkgs.nixd}/bin/nixd";
+      };
       language = [
         {
           name = "nix";
@@ -24,6 +26,7 @@
           formatter = {
             command = "nixfmt";
           };
+          language-servers = [ "nixd" ];
         }
       ];
     };

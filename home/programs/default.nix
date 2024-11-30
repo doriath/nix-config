@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 {
   imports = [
     ./git.nix
@@ -9,6 +9,7 @@
   home.packages = [
     pkgs.nixd
     pkgs.nixfmt-rfc-style
+    inputs.home-manager.packages.${pkgs.system}.default
   ];
 
   programs.direnv = {
