@@ -8,6 +8,9 @@
       st = "status";
     };
     extraConfig = {
+      core = {
+        editor = "hx";
+      };
       init = {
         defaultBranch = "main";
       };
