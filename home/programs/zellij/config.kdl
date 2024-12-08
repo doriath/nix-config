@@ -1,0 +1,5 @@
+default_shell "nu"
+copy_command "xclip -selection clipboard"
+keybinds {
+  unbind "Ctrl b"
+}

@@ -2,10 +2,8 @@
   description = "A simple NixOS flake";
 
   inputs = {
-    # Using 24.05 git tag, as stable point. If all flakes use 24.05, then
-    # the version of nixpkgs will be exactly the same (even without the lock file),
-    # allowing to reuse most basic packages.
-    nixpkgs.url = "github:NixOS/nixpkgs/24.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     # home-manager, used for managing user configuration
     home-manager = {
       url = "github:nix-community/home-manager/release-24.05";

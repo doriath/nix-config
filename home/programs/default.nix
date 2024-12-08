@@ -1,9 +1,11 @@
 { inputs, pkgs, ... }:
 {
   imports = [
+    ./direnv.nix
     ./git.nix
     ./helix.nix
-    ./nushell.nix
+    ./nushell
+    ./zellij
   ];
 
   home.packages = [
@@ -12,14 +14,10 @@
     inputs.home-manager.packages.${pkgs.system}.default
   ];
 
-  programs.direnv = {
-    enable = true;
-    nix-direnv.enable = true;
-  };
   programs.bat.enable = true;
   programs.carapace.enable = true;
   programs.fzf.enable = true;
   programs.ripgrep.enable = true;
-  programs.zellij.enable = true;
+  programs.starship.enable = true;
   programs.zoxide.enable = true;
 }
