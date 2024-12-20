@@ -1,8 +1,8 @@
-{ inputs, pkgs, ... }:
+{ pkgs, pkgs-unstable, ... }:
 {
   programs.helix = {
     enable = true;
-    package = inputs.nixpkgs-unstable.legacyPackages."${pkgs.system}".helix;
+    package = pkgs-unstable.helix;
     defaultEditor = true;
     settings = {
       theme = "gruvbox";

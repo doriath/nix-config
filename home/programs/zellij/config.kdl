@@ -1,5 +1,25 @@
 default_shell "nu"
+theme "gruvbox"
 copy_command "xclip -selection clipboard"
 keybinds {
-  unbind "Ctrl b"
+    unbind "Ctrl b"
+    shared_except "session" "locked" {
+        unbind "Ctrl o"
+        bind "Ctrl a" { SwitchToMode "Session"; }
+    }
+}
+themes {
+    gruvbox {
+        fg 235 219 178
+        bg 80 73 69
+        black 60 56 54
+        red 204 36 29
+        green 152 151 26
+        yellow 215 153 33
+        blue 69 133 136
+        magenta 177 98 134
+        cyan 104 157 106
+        white 251 241 199
+        orange 214 93 14
+    }
 }

@@ -10,7 +10,7 @@
     extraConfig = {
       core = {
         editor = "hx";
-        excludeFiles = "~/.gitignore";
+        excludesFile = "~/.gitignore";
       };
       init = {
         defaultBranch = "main";
