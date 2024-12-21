@@ -2,8 +2,9 @@
 {
   imports = [
     ./direnv.nix
-    ./git.nix
+    ./git
     ./helix.nix
+    ./jujutsu.nix
     ./nushell
     ./zellij
   ];

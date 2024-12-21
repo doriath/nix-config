@@ -1,5 +1,8 @@
-{ ... }:
+{ config, ... }:
 {
+  home.file."${config.home.homeDirectory}/.gitignore" = {
+    source = ./gitignore;
+  };
   programs.git = {
     enable = true;
     userName = "Tomasz Zurkowski";
