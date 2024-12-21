@@ -4,6 +4,7 @@ $env.PATH = ($env.PATH |
   append /usr/bin/env
 )
 $env.EDITOR = "hx"
+$env.VISUAL = "hx"
 
 $env.config = {
   show_banner: false,
