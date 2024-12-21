@@ -1,14 +1,13 @@
-# TODO: maybe move to env.nu
-$env.PATH = ($env.PATH |
-  split row (char esep) |
-  append /usr/bin/env
-)
 $env.EDITOR = "hx"
 $env.VISUAL = "hx"
 
 $env.config = {
   show_banner: false,
   buffer_editor: "hx",
+  history: {
+    file_format: "sqlite",
+    isolation: true,   
+  },
 }
 alias zj = zellij
 
