@@ -1,4 +1,9 @@
-{ inputs, pkgs, ... }:
+{
+  inputs,
+  pkgs,
+  pkgs-unstable,
+  ...
+}:
 {
   imports = [
     ./direnv.nix
@@ -16,7 +21,10 @@
   ];
 
   programs.bat.enable = true;
-  programs.carapace.enable = true;
+  programs.carapace = {
+    enable = true;
+    package = pkgs-unstable.carapace;
+  };
   programs.fzf.enable = true;
   programs.ripgrep.enable = true;
   programs.starship.enable = true;
