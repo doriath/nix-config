@@ -9,6 +9,7 @@
       editor = {
         line-number = "relative";
         lsp.display-messages = true;
+        auto-pairs = false;
         cursor-shape = {
           insert = "bar";
           normal = "block";
