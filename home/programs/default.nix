@@ -15,6 +15,8 @@
     pkgs.nixfmt-rfc-style
     # LSP for markdown
     pkgs.marksman
+    # LSP for toml
+    pkgs.taplo
     # Manage home-manager with home-manager
     pkgs.home-manager
   ];
