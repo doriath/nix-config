@@ -1,9 +1,4 @@
-{
-  inputs,
-  pkgs,
-  pkgs-unstable,
-  ...
-}:
+{ pkgs, pkgs-unstable, ... }:
 {
   imports = [
     ./direnv.nix
@@ -15,9 +10,13 @@
   ];
 
   home.packages = [
+    # LSP and formatting for nix
     pkgs.nixd
     pkgs.nixfmt-rfc-style
-    inputs.home-manager.packages.${pkgs.system}.default
+    # LSP for markdown
+    pkgs.marksman
+    # Manage home-manager with home-manager
+    pkgs.home-manager
   ];
 
   programs.bat.enable = true;
