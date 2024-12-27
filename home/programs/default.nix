@@ -25,6 +25,7 @@
   programs.carapace = {
     enable = true;
     package = pkgs-unstable.carapace;
+    enableNushellIntegration = false;
   };
   programs.fzf.enable = true;
   programs.ripgrep.enable = true;
