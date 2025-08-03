@@ -13,3 +13,9 @@ ln -s $PWD ~/.config/home-manager
 
 nix run . -- switch
 ```
+
+## Update nix packages
+
+```shell
+nix flake lock --update-input nixpkgs-unstable
+```
