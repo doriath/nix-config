@@ -11,6 +11,7 @@
 
   home.packages = [
     # LSP and formatting for nix
+    pkgs.nix
     pkgs.nixd
     pkgs.nixfmt-rfc-style
     # LSP for markdown
@@ -30,5 +31,5 @@
   programs.fzf.enable = true;
   programs.ripgrep.enable = true;
   programs.starship.enable = true;
-  programs.zoxide.enable = true;
+  # programs.zoxide.enable = true;
 }
