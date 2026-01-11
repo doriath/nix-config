@@ -9,6 +9,10 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -45,6 +49,13 @@
 
   # Configure console keymap
   console.keyMap = "pl2";
+
+  services.kanata = {
+    enable = true;
+    keyboards = {
+      keyboard.config = ''(defsrc caps) (deflayer default esc)'';
+    };
+  };
 
   # Enable CUPS to print documents.
   services.printing.enable = true;

@@ -20,8 +20,10 @@
     pkgs.taplo
     # Manage home-manager with home-manager
     pkgs.home-manager
+
   ];
 
+  programs.gemini-cli.enable = true;
   programs.bat.enable = true;
   programs.carapace = {
     enable = true;

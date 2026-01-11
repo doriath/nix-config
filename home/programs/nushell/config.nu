@@ -12,13 +12,13 @@ $env.config = {
     file_format: "sqlite",
     isolation: true,   
   },
-  completions: {
-    external: {
-      enable: true,
-      max_results: 100,
-      completer: $cap_completer,
-    },
-  },
+  # completions: {
+  #   external: {
+  #     enable: true,
+  #     max_results: 100,
+  #     completer: $cap_completer,
+  #   },
+  # },
   hooks: {
     pre_prompt: [{ ||
       if (which direnv | is-empty) {
